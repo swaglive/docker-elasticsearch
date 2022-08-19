@@ -1,11 +1,12 @@
 ARG     version=
+ARG     gradle_version=5.6.4
 ARG     base=elasticsearch:${version}
 
 ### 
 
-FROM    gradle:5.4.1 as jieba
+FROM    gradle:${gradle_version} as elasticsearch-jieba
 
-ARG     version=latest
+ARG     version=
 
 WORKDIR /
 
@@ -21,4 +22,4 @@ RUN     gradle pz && \
 
 FROM    ${base}
 
-COPY    --from=jieba --chown=elasticsearch:elasticsearch /usr/share/elasticsearch/plugins/jieba /usr/share/elasticsearch/plugins/jieba
+COPY    --from=elasticsearch-jieba --chown=elasticsearch:elasticsearch /usr/share/elasticsearch/plugins/jieba /usr/share/elasticsearch/plugins/jieba
