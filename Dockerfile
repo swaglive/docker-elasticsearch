@@ -4,8 +4,7 @@ ARG     base=elasticsearch:${version}
 
 ### 
 
-FROM    gradle:${gradle_version} as elasticsearch-jieba
-ARG     version=
+FROM    gradle:${gradle_version} AS elasticsearch-jieba
 
 WORKDIR /
 
@@ -20,8 +19,6 @@ RUN     gradle pz && \
 ###
 
 FROM    ${base}
-ARG     version=
-ARG     base=elasticsearch:${version}
 
 COPY    --from=elasticsearch-jieba --chown=elasticsearch:elasticsearch /usr/share/elasticsearch/plugins/jieba /usr/share/elasticsearch/plugins/jieba
 
