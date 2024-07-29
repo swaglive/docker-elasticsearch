@@ -20,6 +20,8 @@ RUN     gradle pz && \
 
 ###
 
+ARG     version=
+
 FROM    ${base}
 
 COPY    --from=elasticsearch-jieba --chown=elasticsearch:elasticsearch /usr/share/elasticsearch/plugins/jieba /usr/share/elasticsearch/plugins/jieba
