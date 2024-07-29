@@ -17,8 +17,8 @@ RUN     gradle pz && \
         unzip build/distributions/elasticsearch-jieba-plugin-${version}.zip -d /usr/share/elasticsearch/plugins/jieba
 
 ###
-
 FROM    ${base}
+ARG     version
 
 COPY    --from=elasticsearch-jieba --chown=elasticsearch:elasticsearch /usr/share/elasticsearch/plugins/jieba /usr/share/elasticsearch/plugins/jieba
 
