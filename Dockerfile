@@ -5,6 +5,7 @@ ARG     base=elasticsearch:${version}
 ### 
 
 FROM    gradle:${gradle_version} AS elasticsearch-jieba
+ARG     version
 
 WORKDIR /
 
