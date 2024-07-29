@@ -24,4 +24,4 @@ FROM    ${base}
 
 COPY    --from=elasticsearch-jieba --chown=elasticsearch:elasticsearch /usr/share/elasticsearch/plugins/jieba /usr/share/elasticsearch/plugins/jieba
 
-RUN     bin/elasticsearch-plugin install https://artifacts.elastic.co/downloads/elasticsearch-plugins/analysis-smartcn/analysis-smartcn-${version}.zip
+RUN     /usr/share/elasticsearch/bin/elasticsearch-plugin install https://artifacts.elastic.co/downloads/elasticsearch-plugins/analysis-smartcn/analysis-smartcn-${version}.zip
