@@ -8,3 +8,7 @@ ARG     version
 
 RUN     /usr/share/elasticsearch/bin/elasticsearch-plugin install \
         https://artifacts.elastic.co/downloads/elasticsearch-plugins/analysis-smartcn/analysis-smartcn-${version}.zip
+
+COPY    --chown=elasticsearch:root \
+        config/synonyms.txt \
+        /usr/share/elasticsearch/config/
